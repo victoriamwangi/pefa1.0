@@ -13,12 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('sermons', function (Blueprint $table) {
-            $table->id();
-            $table->longText('body');
-            $table->integer('author');
-            $table->json('tags');
-            $table->timestamps();
+        //
+        Schema::table('sermons', function (Blueprint $table) {
+            
+            $table->text('title');
+           
         });
     }
 
@@ -29,6 +28,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('sermons');
+        //
     }
 };

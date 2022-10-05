@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\SermonController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -29,3 +30,7 @@ Route::get('/dashboard', function () {
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 require __DIR__.'/auth.php';
+
+// Route::resource('sermons', SermonController::class);
+Route::get('/', [SermonController::class, 'index']);
+Route::get('/sermons', [SermonController::class, 'getSermons']);
